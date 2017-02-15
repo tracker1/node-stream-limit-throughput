@@ -5,7 +5,8 @@
 */
 /* eslint-env node, jest */
 
-import createFill, { fillTransform, createTf } from './create-fill';
+import createFill, { fillTransform, createTf, __RewireAPI__ } from './create-fill';
+const { __Rewire__: wire, __ResetDependency__: unwire } = __RewireAPI__;
 
 describe('create-fill', () => {
   let context;
@@ -34,13 +35,13 @@ describe('create-fill', () => {
       ctfres = jest.fn();
       ctf = jest.fn(() => ctfres);
 
-      createFill.__Rewire__('through2', through2);
-      createFill.__Rewire__('createTf', ctf);
+      wire('through2', through2);
+      wire('createTf', ctf);
     });
 
     afterEach(() => {
-      createFill.__ResetDependency__('through2');
-      createFill.__ResetDependency__('createTf');
+      unwire('through2');
+      unwire('createTf');
     });
 
     it('will return a through2 stream', () => {
@@ -64,11 +65,11 @@ describe('create-fill', () => {
 
     beforeEach(() => {
       dtf = jest.fn();
-      createFill.__Rewire__('fillTransform', dtf);
+      wire('fillTransform', dtf);
     });
 
     afterEach(() => {
-      createFill.__ResetDependency__('fillTransform');
+      unwire('fillTransform');
     });
 
     it('will return a function', () => {

@@ -5,7 +5,8 @@
 */
 /* eslint-env node, jest */
 
-import createDrain, { drainTransform, createTf } from './create-drain';
+import createDrain, { drainTransform, createTf, __RewireAPI__ } from './create-drain';
+const { __Rewire__: wire, __ResetDependency__: unwire } = __RewireAPI__;
 
 describe('create-drain', () => {
   let context;
@@ -34,13 +35,13 @@ describe('create-drain', () => {
       ctfres = jest.fn();
       ctf = jest.fn(() => ctfres);
 
-      createDrain.__Rewire__('through2', through2);
-      createDrain.__Rewire__('createTf', ctf);
+      wire('through2', through2);
+      wire('createTf', ctf);
     });
 
     afterEach(() => {
-      createDrain.__ResetDependency__('through2');
-      createDrain.__ResetDependency__('createTf');
+      unwire('through2');
+      unwire('createTf');
     });
 
     it('will return a through2 stream', () => {
@@ -64,11 +65,11 @@ describe('create-drain', () => {
 
     beforeEach(() => {
       dtf = jest.fn();
-      createDrain.__Rewire__('drainTransform', dtf);
+      wire('drainTransform', dtf);
     });
 
     afterEach(() => {
-      createDrain.__ResetDependency__('drainTransform');
+      unwire('drainTransform');
     });
 
     it('will return a function', () => {
