@@ -34,7 +34,7 @@ Creating a StreamLimiter
 ## Example
 
     import streamLimit from 'stream-limit-throughput';
-    import linestream = 'line-stream';
+    import linestream from 'line-stream';
     import takesTime from 'handle-input-record';
 
     export default function processStream(input, output) {

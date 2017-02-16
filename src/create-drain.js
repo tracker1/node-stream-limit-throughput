@@ -1,6 +1,7 @@
 import through2 from 'through2';
 
 export const drainTransform = (ts, context, chunk, cb) => {
+  ts.push(chunk);
   const items = context.items -= 1; // eslint-disable-line
   if (items === 0 || items <= Math.floor(context.max / 2)) {
     if (items === 0) context.emit('drained');
@@ -9,7 +10,6 @@ export const drainTransform = (ts, context, chunk, cb) => {
       context.emit('filling');
     }
   }
-  ts.push(chunk);
   cb();
 };
 

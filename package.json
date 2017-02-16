@@ -38,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "jest": "^18.1.0",
+    "line-stream": "^1.0.0",
     "mz": "^2.6.0",
     "rimraf": "^2.5.4",
     "shelljs": "^0.7.6"
@@ -125,8 +126,9 @@
   },
   "scripts": {
     "lint": "eslint ./",
-    "pretest": "npm run lint && babel-node tools/scripts/pretest.js",
+    "pretest": "npm run lint && babel-node tools/scripts/pretest.js && npm run build",
     "test": "jest --coverage",
+    "posttest": "rimraf dist",
     "build": "babel-node tools/scripts/build.js"
   }
 }
