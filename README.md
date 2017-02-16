@@ -1,5 +1,7 @@
 # node-stream-limit-thoughput
 
+**NOTE: Node 6+ Required**
+
 Advanced throughput throttling for node streams.
 
 The purpose of this module is to prevent the usage of too much memory
@@ -10,8 +12,6 @@ up to `N` number of items to be in the pipeline at once.
 
 When the pipeline is full, the input stream is paused, and once the
 pipeline is fully drained, the input stream will be unpaused.
-
-**NOTE: Node 4+ Required**
 
 ## Installation
 
@@ -43,13 +43,17 @@ Creating a StreamLimiter
     export default function processStream(input, output) {
       const limitStream = streamLimit({
         input,
-        max: 100,
+        max: 10,
         objectMode: true,
       });
 
-      return input.pipe(split2())   // start with the input, read a line at a time
-        .pipe(limitStream.fill)         // pipe through the limiter's fill stream
-        .pipe(stakesTime())             // do your tasks that have high overhead and take time
-        .pipe(limitStream.drain)        // pipe through limiter's drain stream
-        .pipe(output);                  // pipe to the output stream
+      return new Promise((resolve, reject) => {
+        input.pipe(split2())          // start with the input, read a line at a time
+            .pipe(limitStream.fill)   // pipe through the limiter's fill stream
+            .pipe(takesTime())        // do your tasks that have high overhead and take time
+            .pipe(limitStream.drain)  // pipe through limiter's drain stream
+            .pipe(output)             // pipe to the output stream
+            .on('error', reject)
+            .on('close', resolve);
+      });
     }
