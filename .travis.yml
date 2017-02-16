@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6'
+script: npm test
+after_success:
+  - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > "${HOME}/.npmrc"'
+  - "./node_modules/.bin/babel-node tools/scripts/publish.js"
+env:
+  global:
+  - NPM_EMAIL: tracker1@gmail.com
+  - secure: usJDdk3szCk9z5TrTT9DDy0Nj+3ju9JQNtOa5fza2Xns0lewb88YrP9t/tX2+Q4i9blmw3dfTA44gLdER+cHx/qL+CRFoKGMxWg1b71trBdMoNiAxYYV118AD2N9P/AQ072z2Lkex6nLPiJiVRIS5ubxX7UsdnhKYN3kmCf5Ik8ItdVW5syJCG9GpJkLcQ7ZesrVihStIFID79UrpdalFMHU17tOgKCqZ1dR5KujxwdMOEYYRju+3noIIjsVVKzhm8M/MZZeZzj/4y8KaBIUwHZqN9HEwNot9T1lN+cAV7wONMT3pGUcuFdoJfIH/Bt6w7jFE60mFjuqDC6M36FF77wv6p2XIowO/gklsnv+10nyhK2j8/eINwsDkJtn1u/F2FDIH4H8CbUkxBvmtfqZUDCcmXAmt691VPFsZ/EOG64Ziz3JDmlrPXNBr1pVSlGhVIfVJOVcko9xJVd77js/B7M84qCet6+OlyQqkdCoFETMeTxWw47kqoHZfXN+Ar3Q6L1hYVImkn2AAzg3rGsHIztixmZBNqN4rDyuOcSAV2h9M0hnflSQUneKeHME8th4VnG5RAphzuf2krbbI1LphcMB4PoKNnYXJd7m6nZ9msMoQBgXG110klLMPU+pG8YZWS+W4RiHeK5/ksJ/s27VoxB1z71L0jMqn8dzBpv3dpA=

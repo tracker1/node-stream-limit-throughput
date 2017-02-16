@@ -1,6 +1,6 @@
 {
   "name": "stream-limit-throughput",
-  "version": "0.0.0",
+  "version": "0.0.12",
   "description": "Advanced throughput throttling for node streams",
   "engines": {
     "node": ">=6.0"
@@ -134,6 +134,10 @@
     "pretest": "rimraf temp && rimraf dist && npm run lint && babel-node tools/scripts/pretest.js && npm run build",
     "test": "jest --coverage",
     "posttest": "rimraf dist",
-    "build": "babel-node tools/scripts/build.js"
+    "build": "babel-node tools/scripts/build.js",
+    "publish": "echo \"Error: do not publish this project from source directory.\" && exit 1",
+    "publish-major": "npm version major && git push origin master && git push --tags",
+    "publish-minor": "npm version minor && git push origin master && git push --tags",
+    "publish-patch": "npm version patch && git push origin master && git push --tags"
   }
 }
