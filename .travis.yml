@@ -3,6 +3,7 @@ node_js:
 - '6'
 script: npm test
 after_success:
+  - 'cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js'
   - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > "${HOME}/.npmrc"'
   - "./node_modules/.bin/babel-node tools/scripts/publish.js"
 env:
