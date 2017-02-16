@@ -8,7 +8,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tracker1/node-stream-limit-thoughput.git"
+    "url": "git+https://github.com/tracker1/node-stream-limit-throughput.git"
   },
   "keywords": [
     "streams",
@@ -20,9 +20,9 @@
   "author": "Michael J. Ryan <tracker1@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tracker1/node-stream-limit-thoughput/issues"
+    "url": "https://github.com/tracker1/node-stream-limit-throughput/issues"
   },
-  "homepage": "https://github.com/tracker1/node-stream-limit-thoughput#readme",
+  "homepage": "https://github.com/tracker1/node-stream-limit-throughput#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
