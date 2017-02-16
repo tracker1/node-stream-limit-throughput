@@ -126,7 +126,7 @@
   },
   "scripts": {
     "lint": "eslint ./",
-    "pretest": "npm run lint && babel-node tools/scripts/pretest.js && npm run build",
+    "pretest": "rimraf temp && rimraf dist && npm run lint && babel-node tools/scripts/pretest.js && npm run build",
     "test": "jest --coverage",
     "posttest": "rimraf dist",
     "build": "babel-node tools/scripts/build.js"
