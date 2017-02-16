@@ -1,6 +1,6 @@
 {
   "name": "stream-limit-throughput",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced throughput throttling for node streams",
   "engines": {
     "node": ">=6.0"
