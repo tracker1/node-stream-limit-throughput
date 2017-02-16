@@ -3,7 +3,7 @@
 ## Advanced throughput throttling for node streams.
 
 [![Build Status](https://travis-ci.org/tracker1/node-stream-limit-throughput.svg?branch=master)](https://travis-ci.org/tracker1/node-stream-limit-thoughput)
-[![Test Coverage](https://img.shields.io/coveralls/node-stream-limit-throughput/node-stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
+[![Coveralls](https://img.shields.io/coveralls/stream-limit-throughput/stream-limit-throughput.svg)]()
 [![npm downloads](https://img.shields.io/npm/dm/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
 [![npm](https://img.shields.io/npm/v/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
 

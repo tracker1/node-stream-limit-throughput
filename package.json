@@ -133,7 +133,7 @@
   "scripts": {
     "lint": "eslint ./",
     "cleanup": "rimraf temp && rimraf dist",
-    "pretest": "npm run cleanup && && npm run lint && npm run build",
+    "pretest": "npm run cleanup && npm run lint && npm run build",
     "test": "jest --coverage",
     "posttest": "npm run cleanup",
     "build": "babel-node tools/scripts/build.js",
