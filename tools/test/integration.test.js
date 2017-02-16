@@ -8,13 +8,13 @@
 import fs from 'mz/fs';
 import path from 'path';
 import through2 from 'through2';
-import linestream from 'line-stream';
+import split2 from 'split2';
 import streamLimit from '../../dist'; // eslint-disable-line
 
 function handleItem(chunk, enc, cb) {
   const ts = this;
   setTimeout(() => {
-    ts.push(chunk);
+    ts.push(`${chunk}\n`);
     cb();
   }, 1);
 }
@@ -45,7 +45,7 @@ describe('tools/test/integration', () => {
 
     await new Promise((resolve, reject) => {
       input
-        .pipe(linestream({ delimiter: '\n' }))
+        .pipe(split2())
         .pipe(limiter.fill)
         .pipe(through2(handleItem))
         .pipe(limiter.drain)

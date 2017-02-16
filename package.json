@@ -38,10 +38,10 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "jest": "^18.1.0",
-    "line-stream": "^1.0.0",
     "mz": "^2.6.0",
     "rimraf": "^2.5.4",
-    "shelljs": "^0.7.6"
+    "shelljs": "^0.7.6",
+    "split2": "^2.1.1"
   },
   "dependencies": {
     "is-stream": "^1.1.0",

@@ -23,7 +23,10 @@ Creating a StreamLimiter
 
     import streamLimit from 'stream-limit-throughput';
     ...
-    var limiter = streamLimit({
+    var limiter = streamLimit(options);
+
+`options.input` - root stream to pause/unpause
+    {
       input: rootInputStream, // root stream to pause/unpause
       max: maxItemsInFlight,  // max items in processing, default: 50, min: 2, max: 4096
       objectMode: false       // fill/drain streams should be in objectMode
@@ -34,7 +37,7 @@ Creating a StreamLimiter
 ## Example
 
     import streamLimit from 'stream-limit-throughput';
-    import linestream from 'line-stream';
+    import split2 from 'split2';
     import takesTime from 'handle-input-record';
 
     export default function processStream(input, output) {
@@ -44,7 +47,7 @@ Creating a StreamLimiter
         objectMode: true,
       });
 
-      return input.pipe(lineStream())   // start with the input, read a line at a time
+      return input.pipe(split2())   // start with the input, read a line at a time
         .pipe(limitStream.fill)         // pipe through the limiter's fill stream
         .pipe(stakesTime())             // do your tasks that have high overhead and take time
         .pipe(limitStream.drain)        // pipe through limiter's drain stream
