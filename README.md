@@ -1,6 +1,6 @@
 # node-stream-limit-thoughput
 
-**NOTE: Node 6+ Required**
+***NOTE: Node 6+ Required***
 
 Advanced throughput throttling for node streams.
 
@@ -11,7 +11,7 @@ to read in each respective item.  In this case, you can allow for
 up to `N` number of items to be in the pipeline at once.
 
 When the pipeline is full, the input stream is paused, and once the
-pipeline is fully drained, the input stream will be unpaused.
+pipeline is at least half drained, the input stream will be unpaused.
 
 ## Installation
 
@@ -24,23 +24,24 @@ Creating a StreamLimiter
     import streamLimit from 'stream-limit-throughput';
     ...
     var limiter = streamLimit(options);
-
-`options.input` - root stream to pause/unpause
-    {
-      input: rootInputStream, // root stream to pause/unpause
-      max: maxItemsInFlight,  // max items in processing, default: 50, min: 2, max: 4096
-      objectMode: false       // fill/drain streams should be in objectMode
-    });
-
     input.pipe(limiter.fill).pipe(expensiveProcess).pipe(limiter.drain);
+
+### options
+
+* `options.input` - root stream to pause/unpause
+* `options.max` - max items in processing, default: 50, min: 1, max: 4096
+* `options.objectMode` - fill/drain streams should be in objectMode
 
 ## Example
 
+    import fs from 'fs';
     import streamLimit from 'stream-limit-throughput';
     import split2 from 'split2';
     import takesTime from 'handle-input-record';
 
-    export default function processStream(input, output) {
+    export default function processStream(inpath, outpath) {
+      const input = fs.createReadStream(inpath);
+      const output = fs.createWriteStream(outpath);
       const limitStream = streamLimit({
         input,
         max: 10,
@@ -57,3 +58,7 @@ Creating a StreamLimiter
             .on('close', resolve);
       });
     }
+
+## License
+
+This project is [MIT licensed](https://github.com/tracker1/node-stream-limit-thoughput/blob/master/LICENSE.txt).
