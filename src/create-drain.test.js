@@ -6,6 +6,7 @@
 /* eslint-env node, jest */
 
 import createDrain, { drainTransform, createTf, __RewireAPI__ } from './create-drain';
+
 const { __Rewire__: wire, __ResetDependency__: unwire } = __RewireAPI__;
 
 describe('create-drain', () => {

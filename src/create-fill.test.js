@@ -6,6 +6,7 @@
 /* eslint-env node, jest */
 
 import createFill, { fillTransform, createTf, __RewireAPI__ } from './create-fill';
+
 const { __Rewire__: wire, __ResetDependency__: unwire } = __RewireAPI__;
 
 describe('create-fill', () => {
