@@ -3,7 +3,7 @@
 ## Advanced throughput throttling for node streams.
 
 [![Build Status](https://travis-ci.org/tracker1/node-stream-limit-throughput.svg?branch=master)](https://travis-ci.org/tracker1/node-stream-limit-thoughput)
-[![Coveralls](https://img.shields.io/coveralls/stream-limit-throughput/stream-limit-throughput.svg)]()
+[![Coverage Status](https://coveralls.io/repos/github/tracker1/node-stream-limit-throughput/badge.svg?branch=master)](https://coveralls.io/github/tracker1/node-stream-limit-throughput?branch=master)
 [![npm downloads](https://img.shields.io/npm/dm/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
 [![npm](https://img.shields.io/npm/v/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
 
