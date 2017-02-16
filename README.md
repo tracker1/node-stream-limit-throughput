@@ -1,8 +1,13 @@
 # node-stream-limit-thoughput
 
-***NOTE: Node 6+ Required***
+## Advanced throughput throttling for node streams.
 
-Advanced throughput throttling for node streams.
+[![Build Status](https://travis-ci.org/tracker1/node-stream-limit-throughput.svg?branch=master)](https://travis-ci.org/tracker1/node-stream-limit-thoughput)
+[![Test Coverage](https://img.shields.io/coveralls/node-stream-limit-throughput/node-stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
+[![npm downloads](https://img.shields.io/npm/dm/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
+[![npm](https://img.shields.io/npm/v/stream-limit-throughput.svg)](https://www.npmjs.com/package/stream-limit-throughput)
+
+***Node 6+ Required***
 
 The purpose of this module is to prevent the usage of too much memory
 while processing an input stream.  When you process large data files
