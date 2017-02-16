@@ -21,8 +21,8 @@ function handleItem(chunk, enc, cb) {
 
 describe('tools/test/integration', () => {
   const tmp = path.resolve(__dirname, '../../temp');
-  const inPath = path.join(tmp, 'test-input.txt');
-  const outPath = path.join(tmp, 'test-output.txt');
+  const inPath = path.join(tmp, 'test-input-dist.txt');
+  const outPath = path.join(tmp, 'test-output-dist.txt');
   const randomData = Array.from(new Array(500)).map(() => `${Math.random()}\n`).join('');
 
   beforeAll(async () => {
