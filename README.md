@@ -16,7 +16,8 @@ to read in each respective item.  In this case, you can allow for
 up to `N` number of items to be in the pipeline at once.
 
 When the pipeline is full, the input stream is paused, and once the
-pipeline is at least half drained, the input stream will be unpaused.
+pipeline is at least half drained, the input stream will be unpaused, 
+and if `--expose-gc` is run on the process, `global.gc()` is run.
 
 ## Installation
 
